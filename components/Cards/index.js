@@ -17,3 +17,51 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(response => {
+    console.dir(response.data.articles);
+    const subjects = Object.keys(response.data.articles)
+    console.log(subjects);
+    console.dir(response.data.articles[subjects[0]]);
+
+    subjects.forEach(topic => {
+      const subjectArticles = response.data.articles[topic];
+      subjectArticles.forEach(articleObj => {
+        const newCard = Card(articleObj);
+        const cardsParent = document.querySelector('.cards-container');
+        cardsParent.appendChild(newCard);
+      });
+    })
+  })
+  .catch(error => {
+    console.log('Data not returned', error);
+  });
+
+function Card(articleObj) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const title = document.createElement('div');
+  title.classList.add('headline');
+  title.textContent = articleObj.headline;
+  card.appendChild(title);
+
+  const author = document.createElement('div');
+  author.classList.add('author');
+  card.appendChild(author);
+
+  const imgParent = document.createElement('div');
+  imgParent.classList.add('img-container');
+  author.appendChild(imgParent);
+
+  const avatar = document.createElement('img');
+  avatar.src = articleObj.authorPhoto;
+  imgParent.appendChild(avatar);
+
+  const credit = document.createElement('span');
+  credit.textContent = articleObj.authorName;
+  author.appendChild(credit);
+
+  return card;
+}
