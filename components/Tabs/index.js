@@ -26,6 +26,14 @@ function Tab(topicStr) {
   const tab = document.createElement('div');
   tab.classList.add('tab');
   tab.textContent = topicStr;
+  let topic = topicStr;
+
+  if (topic.indexOf('.') !== -1) {
+    topic = topicStr.slice(0, topic.indexOf('.'));
+    // 'node.js' => 'node'
+  }
+
+  tab.setAttribute('data-topic', topic)
 
   return tab;
 }
