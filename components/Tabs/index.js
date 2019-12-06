@@ -34,6 +34,22 @@ function Tab(topicStr) {
   }
 
   tab.setAttribute('data-topic', topic)
+  tab.addEventListener('click', event => {
+    // const selection = document.querySelectorAll(`.card[data-topic=${topic}]`);
+    
+    // selection.forEach(elem => {
+    //   elem.style.display = 'none';
+    // });
+
+    const allCards = document.querySelectorAll('.card');
+
+    const cardArray = Array.from(allCards);
+    // console.log(cardArray[0]);
+    const cardsToHide = cardArray.filter(card => card.dataset.topic !== topic);
+    cardsToHide.forEach(elem => {
+      elem.style.display = 'none';
+    })
+  });
 
   return tab;
 }
