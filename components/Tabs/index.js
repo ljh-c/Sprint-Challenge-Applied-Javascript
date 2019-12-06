@@ -44,7 +44,6 @@ function Tab(topicStr) {
     const allCards = document.querySelectorAll('.card');
 
     const cardArray = Array.from(allCards);
-    // console.log(cardArray[0]);
     const cardsToHide = cardArray.filter(card => card.dataset.topic !== topic);
     cardsToHide.forEach(elem => {
       elem.style.display = 'none';
