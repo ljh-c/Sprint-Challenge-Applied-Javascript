@@ -20,10 +20,10 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
-    console.dir(response.data.articles);
+    // console.dir(response.data.articles);
     const subjects = Object.keys(response.data.articles)
-    console.log(subjects);
-    console.dir(response.data.articles[subjects[0]]);
+    // console.log(subjects);
+    // console.dir(response.data.articles[subjects[0]]);
 
     subjects.forEach(topic => {
       const subjectArticles = response.data.articles[topic];
