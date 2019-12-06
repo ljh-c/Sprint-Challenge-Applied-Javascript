@@ -22,7 +22,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
     // console.dir(response.data.articles);
     const subjects = Object.keys(response.data.articles)
-    console.log(subjects);
+    // console.log(subjects);
     // console.dir(response.data.articles[subjects[2]]);
 
     subjects.forEach((topic, index, array) => {

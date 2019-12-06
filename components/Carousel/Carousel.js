@@ -25,6 +25,12 @@ function Carousel() {
   const left = document.createElement('div');
   left.classList.add('left-button');
   left.textContent = ' < ';
+  left.addEventListener('click', event => {
+    const pos0 = event.target.nextElementSibling; // image at pos 0
+    carousel.insertBefore(pos0, right);   
+    // the same node cannot exist in multiple positions, 
+    // so it is removed and placed at the end
+  })
   carousel.appendChild(left);
 
   const img1 = document.createElement('img');
@@ -54,3 +60,7 @@ function Carousel() {
 const carouselParent = document.querySelector('.carousel-container');
 const carousel = Carousel();
 carouselParent.appendChild(carousel);
+
+const pos0 = document.querySelector('img');
+const pos1 = pos0.nextElementSibling;
+console.log(pos1);
