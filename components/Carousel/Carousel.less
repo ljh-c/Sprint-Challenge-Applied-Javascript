@@ -38,4 +38,27 @@
     .width-100();
     display: none;
   }
+
+  // * * * * * * ADDED BY LIL
+
+  img.active {
+    display: block;
+  }
+
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .2}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .2}
+    to {opacity: 1}
+  }
 }
