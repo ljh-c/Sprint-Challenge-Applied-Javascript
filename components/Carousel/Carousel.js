@@ -26,35 +26,53 @@ function Carousel() {
   left.classList.add('left-button');
   left.textContent = ' < ';
   left.addEventListener('click', event => {
-    const pos0 = event.target.nextElementSibling; // image at pos 0
+
+    // * * * * * * * THIS IMPLEMENTATION CANNOT BE ANIMATED: start
+
+    const pos0 = event.target.nextElementSibling; 
     carousel.insertBefore(pos0, right);   
     // the same node cannot exist in multiple positions, 
     // so it is removed and placed at the end
+
+    // * * * * * * * THIS IMPLEMENTATION CANNOT BE ANIMATED: end
   })
   carousel.appendChild(left);
 
   const img1 = document.createElement('img');
   img1.src = './assets/carousel/mountains.jpeg';
+  img1.classList.add('fade');
+  img1.classList.add('active');
   carousel.appendChild(img1);
 
   const img2 = document.createElement('img');
   img2.setAttribute('src', './assets/carousel/computer.jpeg');
+  img2.classList.add('active');
+  img2.classList.add('fade');
   carousel.appendChild(img2);
 
   const img3 = document.createElement('img');
   img3.src = './assets/carousel/trees.jpeg';
+  img3.classList.add('active');
+  img3.classList.add('fade');
   carousel.appendChild(img3);
 
   const img4 = document.createElement('img');
   img4.src = './assets/carousel/turntable.jpeg';
+  img4.classList.add('fade');
+  img4.classList.add('active');
   carousel.appendChild(img4);
 
   const right = document.createElement('div');
   right.classList.add('right-button');
   right.textContent = ' > ';
   right.addEventListener('click', event => {
+
+    // * * * * * * * THIS IMPLEMENTATION CANNOT BE ANIMATED: start
+
     const pos4 = event.target.previousElementSibling;
     left.insertAdjacentElement('afterend', pos4);
+
+    // * * * * * * * THIS IMPLEMENTATION CANNOT BE ANIMATED: end
   })
   carousel.appendChild(right);
 
