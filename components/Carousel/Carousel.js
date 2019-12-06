@@ -52,6 +52,10 @@ function Carousel() {
   const right = document.createElement('div');
   right.classList.add('right-button');
   right.textContent = ' > ';
+  right.addEventListener('click', event => {
+    const pos4 = event.target.previousElementSibling;
+    left.insertAdjacentElement('afterend', pos4);
+  })
   carousel.appendChild(right);
 
   return carousel;
